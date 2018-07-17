@@ -1,0 +1,38 @@
+/************************* PC ************************/
+@media screen and (max-width:2560px) and (min-width:1000px){
+
+}
+
+/************************* mobile pad ************************/
+@media screen and (max-width:1000px){
+
+}
+
+/************************* 15:9 android 微信 && 16:9 浏览器 ************************/
+@media screen and (device-width:360px) and (max-height:540px), screen and (device-width:320px) and (max-height:470px), screen and (device-width:375px) and (max-height:560px), screen and (device-width:414px) and (max-height:630px){
+	
+}
+
+/************************* 18:9 android 微信 ************************/
+@media screen and (device-width:360px) and (min-height:600px), screen and (device-width:393px) and (min-height:660px){
+
+}
+
+/************************* 18:9 android 微信 no system bar ************************/
+@media screen and (device-width:360px) and (min-height:620px), screen and (device-width:412px) and (min-height:720px){
+
+}
+
+/************************* 18:9 android 浏览器 ************************/
+@media screen and (device-width:360px) and (min-height:540px) and (max-height:560px), screen and (device-width:393px) and (min-height:600px) and (max-height:620px){
+}
+
+/************************* iphoneX 微信 ************************/
+@media screen and (device-width:375px) and (min-height:720px){
+	
+}
+
+/************************* iphoneX 浏览器 ************************/
+@media screen and (device-width:375px) and (min-height:630px) and (max-height:640px){
+
+}
