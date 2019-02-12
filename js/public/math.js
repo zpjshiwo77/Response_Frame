@@ -1,5 +1,5 @@
 /**********************
-*******2018.7.16*******
+*******2019.2.12*******
 *******   page  *******
 **********************/
 
@@ -8,14 +8,20 @@ var imath = new importMath();
 function importMath() {
 	var _self = this;
 
-	//获得范围内随机整数
+	/**
+	 * 获得范围内随机整数
+	 * @param {*} min			最小值
+	 * @param {*} max 			最大值
+	 */
 	_self.randomRange = function(min, max) {
 		var randomNumber;
 		randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
 		return randomNumber;
 	} //end func 
 
-	//获得随机颜色
+	/**
+	 * 获得随机颜色
+	 */
 	_self.randomColor = function() {
 		var str = "0123456789abcdef";
 		var s = "#";
@@ -23,64 +29,55 @@ function importMath() {
 		return s;
 	} //end func
 
-	//随机打乱一个数组
+	/**
+	 * 随机打乱一个数组
+	 * @param {*} ary 			数组
+	 */
 	_self.randomSort = function(ary) {
 		if(ary && ary.length > 1) ary.sort(function() {
 			return 0.5 - Math.random();
 		});
 	} //end func 
 
-	//随机正负
+	/**
+	 * 随机正负
+	 */
 	_self.randomPlus = function() {
 		return Math.random() < 0.5 ? -1 : 1;
 	} //end func 
 
-	//等比缩放,分cover模式和contain模式
-	_self.autoSize = function(aryNum, aryMax, scaleMode) {
-		if(scaleMode === 1 || scaleMode === 0) scaleMode = scaleMode === 1 ? 'cover' : 'contain';
-		else scaleMode = scaleMode || 'cover';
-		var aryNow = [];
-		var aryRate = aryNum[0] / aryNum[1];
-		aryNow[0] = aryMax[0];
-		aryNow[1] = Math.round(aryNow[0] / aryRate);
-		if(scaleMode == 'height') {
-			aryNow[1] = aryMax[1];
-			aryNow[0] = Math.round(aryNow[1] * aryRate);
-		} //edn else if
-		else if(scaleMode == 'contain') {
-			if(aryNow[1] > aryMax[1]) {
-				aryNow[1] = aryMax[1];
-				aryNow[0] = Math.round(aryNow[1] * aryRate);
-			} //end if
-		} //edn else if
-		else if(scaleMode == 'cover') {
-			if(aryNow[1] < aryMax[1]) {
-				aryNow[1] = aryMax[1];
-				aryNow[0] = Math.round(aryNow[1] * aryRate);
-			} //end if
-		} //edn else if
-		else if(scaleMode == 'full') aryNow = [aryMax[0], aryMax[1]];
-		return aryNow;
-	} //end func
-
-	//角度转弧度
+	/**
+	 * 角度转弧度
+	 * @param {*} degree 			角度
+	 */
 	_self.toRadian = function(degree) {
 		return degree * Math.PI / 180;
 	} //end func 
 
-	//弧度转角度
+	/**
+	 * 弧度转角度
+	 * @param {*} radian 			弧度
+	 */
 	_self.toDegree = function(radian) {
 		return radian / Math.PI * 180;
 	} //end func 
 
-	//获得2点之间的距离
+	/**
+	 * 获得2点之间的距离
+	 * @param {*} source 			初始点
+	 * @param {*} target 			结束点
+	 */
 	_self.getDis = function(source, target) {
 		var lineX = target[0] - source[0];
 		var lineY = target[1] - source[1];
 		return Math.sqrt(Math.pow(Math.abs(lineX), 2) + Math.pow(Math.abs(lineY), 2));
 	} //end func 
 
-	//获得2点之间的夹角
+	/**
+	 * 获得2点连成的线段与水平线的夹角
+	 * @param {*} source 			初始点
+	 * @param {*} target 			结束点
+	 */
 	_self.getDeg = function(source, target) {
 		var deg;
 		if(source[0] == target[0] && source[1] == target[1]) {
@@ -99,7 +96,13 @@ function importMath() {
 		return deg;
 	} //end func
 
-	//测试2个jquery对象是否重合
+	/**
+	 * 测试2个jquery对象是否重合
+	 * @param {*} source 			原始dom
+	 * @param {*} target 			目标dom
+	 * @param {*} scaleX 			x缩放
+	 * @param {*} scaleY 			y缩放
+	 */
 	_self.hitTest = function(source, target, scaleX, scaleY) {
 		scaleX = scaleX != null ? scaleX : 1;
 		scaleY = scaleY != null ? scaleY : 1;
@@ -116,7 +119,13 @@ function importMath() {
 		else return false;
 	} //end func
 
-	//测试一个点和一个DOM对象是否重合
+	/**
+	 * 测试一个点和一个DOM对象是否重合
+	 * @param {*} source 			原始点
+	 * @param {*} target 			目标dom
+	 * @param {*} scaleX 			x缩放
+	 * @param {*} scaleY 			y缩放
+	 */
 	_self.hitPoint = function(source, target, scaleX, scaleY) {
 		scaleX = scaleX != null ? scaleX : 1;
 		scaleY = scaleY != null ? scaleY : 1;
@@ -128,7 +137,10 @@ function importMath() {
 		else return false;
 	} //end func
 
-	//深度复制
+	/**
+	 * 深度复制
+	 * @param {*} source 			需要复制的对象
+	 */
 	_self.deepClone = function(source) {
 		function getClone(_source) {
 			var clone = math.dataType(_source) == "array" ? [] : {};
@@ -141,18 +153,28 @@ function importMath() {
 		return getClone(source);
 	} //end func
 
-	//判断是数组还是对象
+	/**
+	 * 判断是数组还是对象
+	 * @param {*} o 				对象
+	 */
 	_self.dataType = function(o) {
 		if(typeof(o) === 'object') return Array == o.constructor ? 'array' : 'object';
 		else return null;
 	} //end func
 
-	//获得Object的长度
+	/**
+	 * 获得Object的长度
+	 * @param {*} obj 				对象
+	 */
 	_self.objectLength = function(obj) {
 		return Object.keys(obj).length;
 	} //end func
 
-	//合并2个object，重复索引的值由后者替换前者
+	/**
+	 * 合并2个object，重复索引的值由后者替换前者
+	 * @param {*} obj1 				对象1
+	 * @param {*} obj2 				对象2
+	 */
 	_self.extend = function(obj1, obj2) {
 		if(obj1 && typeof(obj1) === 'object' && Object.keys(obj1).length > 0) {
 			if(obj2 && typeof(obj2) === 'object' && Object.keys(obj2).length > 0) {
@@ -167,14 +189,21 @@ function importMath() {
 		else return obj2;
 	} //edn func
 
-	//将数字格式化为 1,000
+	/**
+	 * 将数字格式化为 1,000
+	 * @param {*} value 				数字
+	 */
 	_self.formatNumber = function(value) {
 		value = value.toString();
 		if(value.length <= 3) return value;
 		else return this.formatNumber(value.substr(0, value.length - 3)) + ',' + value.substr(value.length - 3);
 	} //end func
 
-	//截取小数点后几位，非四舍五入
+	/**
+	 * 截取小数点后几位，非四舍五入
+	 * @param {*} value 				数字
+	 * @param {*} pt 					小数点后面的位数
+	 */
 	_self.float = function(value, pt) {
 		pt = pt || 2;
 		value = value.toString();
@@ -186,7 +215,10 @@ function importMath() {
 		} //end else
 	} //edn func
 
-	//将颜色值转换成rgb值
+	/**
+	 * 将颜色值转换成rgb值
+	 * @param {*} color 				色值
+	 */
 	_self.colorToRgb = function(color) {
 		if(color.match(/^#?([0-9a-f]{6}|[0-9a-f]{3})$/i)) {
 			var value = color.slice(color.indexOf('#') + 1),
@@ -199,7 +231,9 @@ function importMath() {
 		else return [0, 0, 0];
 	} //end func
 	
-	//去除空格
+	/**
+	 * 去除空格
+	 */
 	_self.trim=function(str,middle){
 		middle=middle||false;
         var str=str.replace(/<\/?[^>]*>/gim,"");//去掉所有的html标记
@@ -210,6 +244,9 @@ function importMath() {
 
 } //end import
 
+/**
+ * 扩展字符串的replaceAll的方法
+ */
 String.prototype.replaceAll = function(s1, s2) {
 	return this.replace(new RegExp(s1, "gm"), s2);
 }

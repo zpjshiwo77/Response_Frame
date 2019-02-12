@@ -25,8 +25,10 @@
             * math.js                               集成了一些计算的方法
             * monitor.js                            页面监测的js
             * public.js                             公用的方法可以写在这里
+            * wxUser.js                             wx验证jsdk的方法
         |plugins                                    js插件放在这个文件夹
             |dialog                                 对话框插件
+            * debug.js                              调试js
         |pages
             * templete.js                           事例js
     |publicHtml

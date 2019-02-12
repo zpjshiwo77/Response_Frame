@@ -1,5 +1,5 @@
 /**********************
-*******2018.7.17*******
+*******2019.2.12*******
 *******   page  *******
 **********************/
 
@@ -7,7 +7,7 @@ var API = new importAPI();
 
 function importAPI () {
 	var _self = this;
-	var requestDomain = "";
+	var requestDomain = location.href.indexOf("seventh") == -1 ? "http://127.1.1.1/API/" : "/API/";
 
 	function _Ajax(opts){
 	    icom.loadingShow();
@@ -18,7 +18,7 @@ function importAPI () {
 	        dataType: 'json',
 	        async: true,
 	        data: opts.data,
-	        success: function(){
+	        success: function(data){
 	        	icom.loadingHide();
 		        if (opts.Type) {
 		            if (opts.onSuccess) opts.onSuccess(data);
@@ -36,10 +36,12 @@ function importAPI () {
 	    });
 	}
 
-	//测试接口
-	_self.Test = function(data,onSuccess){
+	/**
+	 * 获取wxjsdk验证数据
+	 */
+	_self.GetJSDKdata = function(data,onSuccess){
 		_Ajax({
-            API:"/api/test/test",
+            API:"wxjsdk/wxjsdk.php",
             data:data,
             onSuccess:onSuccess,
             Type:false

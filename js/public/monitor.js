@@ -1,5 +1,5 @@
 /**********************
-*******2018.7.16*******
+*******20119.2.12*******
 *******   page  *******
 **********************/
 
@@ -15,7 +15,9 @@ var imonitor = new importMonitor();
 function importMonitor(){
 	var _self = this;
 
-	//按钮监测
+	/**
+	 * 按钮监测
+	 */
 	_self.btnMonitor =  function(source){
 		$("body").on("click",".monitor",function(){
 			var hmsr = source || false;
@@ -26,7 +28,9 @@ function importMonitor(){
 		});
 	}//end func
 
-	//页面监测
+	/**
+	 * 页面监测
+	 */
 	_self.addMonitor = function(){
 		if(window._hmt) _hmt.push(['_trackEvent', hmsr?'来源：'+hmsr:'来源：默认', index, (category!=''?category+'-':'') + label]);
 		if(window.ga) ga('send', 'event', hmsr?'来源：'+hmsr:'来源：默认', index, (category!=''?category+'-':'') + label);

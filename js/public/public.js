@@ -2,14 +2,34 @@
 var loadHeaderEnd = false;
 var loadFooterEnd = false;
 
-//页面初始化
+/**
+ * 页面初始化
+ */
 $(document).ready(function() {
+    if(os.weixin) wxShareInit();
+    if(icom.getUrlParam("debug") == 1) icom.loadJs("js/plugins/debug.js");
     renderHeadNav();
     renderFootNav();
     if(icom.windowsW < 1000) icom.remUnitConverter(750);   //根据设计稿的宽度设定
 }); //end ready
 
-//显示页面内容
+/**
+ * 微信分享初始化
+ */
+function wxShareInit(){
+    var url = icom.getDominUrl();
+    var shareInfo = {
+        title: "分享标题",
+        desc: "分享文案",
+        link: url, 
+        imgUrl: "http://seventh77.com/frame/images/templete/test.jpg",
+    }
+    wxUser.Init(shareInfo);
+}
+
+/**
+ * 显示页面内容
+ */
 function pageContShow() {
     if (loadHeaderEnd && loadFooterEnd) {
         $("body").removeClass('hide');
@@ -18,12 +38,16 @@ function pageContShow() {
     }
 } //end func
 
-//公共的事件绑定
+/**
+ * 公共的事件绑定
+ */
 function publicEventBind() {
     
 } //end func
 
-//渲染页面头部导航
+/**
+ * 渲染页面头部导航
+ */
 function renderHeadNav() {
     if ($("#headNav").length > 0) {
         $("#headNav").load("publicHtml/headNav.html?v=" + Math.random(), function() {
@@ -33,7 +57,9 @@ function renderHeadNav() {
     }
 } //end func
 
-//渲染底部导航部分
+/**
+ * 渲染底部导航部分
+ */
 function renderFootNav() {
     if ($("#footNav").length > 0) {
         $("#footNav").load("publicHtml/footNav.html?v=" + Math.random(), function() {
