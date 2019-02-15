@@ -6,7 +6,8 @@ var loadFooterEnd = false;
  * 页面初始化
  */
 $(document).ready(function() {
-    if(os.weixin) wxShareInit();
+    // if(os.weixin) wxShareInit();
+    wxShareInit();
     if(icom.getUrlParam("debug") == 1) icom.loadJs("js/plugins/debug.js");
     renderHeadNav();
     renderFootNav();
@@ -22,7 +23,7 @@ function wxShareInit(){
         title: "分享标题",
         desc: "分享文案",
         link: url, 
-        imgUrl: "http://seventh77.com/frame/images/templete/test.jpg",
+        imgUrl: "http://seventh77.com/timeline/images/templete/test.jpg",
     }
     wxUser.Init(shareInfo);
 }

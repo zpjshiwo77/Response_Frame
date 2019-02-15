@@ -28,7 +28,7 @@ function WxUser(){
      */
     function wxShareConfig(data,shareInfo){
         wx.config({
-            debug: true,
+            debug: false,
             appId: data.appId,
             timestamp: data.timestamp,
             nonceStr: data.nonceStr,
@@ -89,7 +89,6 @@ function WxUser(){
      */
     _self.shareInit = function(shareInfo){
         if(_self.wxSigned){
-            console.log(shareInfo);
             // wx.updateAppMessageShareData({ 
             //     title: shareInfo.title,
             //     desc: shareInfo.desc,
