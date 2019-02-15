@@ -8,7 +8,7 @@
 
 //define("APPID", "");
 //define("APPSECRET", "");
-header( 'Content-Type:text/html;charset=utf-8 ');  
+header( 'Content-Type:text/html;charset=utf-8');  
 
 define("APPID", "");  
 define("APPSECRET", "");

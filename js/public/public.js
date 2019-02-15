@@ -6,8 +6,7 @@ var loadFooterEnd = false;
  * 页面初始化
  */
 $(document).ready(function() {
-    // if(os.weixin) wxShareInit();
-    wxShareInit();
+    if(os.weixin) wxShareInit();
     if(icom.getUrlParam("debug") == 1) icom.loadJs("js/plugins/debug.js");
     renderHeadNav();
     renderFootNav();
