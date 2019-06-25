@@ -2,14 +2,18 @@ $(document).ready(function(){
 	//变量的定义
 
 
-	//页面初始化
+	/**
+	 * 页面初始化
+	 */
 	function pageInit(){
 		loadInit();
 		eventBind();
 	}//end func
 	pageInit();
 
-	//加载图片
+	/**
+	 * 加载图片
+	 */
 	function loadInit(){
 		var loader = new PxLoader();
 		loader.addImage('images/templete/test.jpg');
@@ -23,12 +27,16 @@ $(document).ready(function(){
 		loader.start();	
 	}//end func
 
-	//页面显示
+	/**
+	 * 页面显示
+	 */
 	function pageShow(){
 
 	}//end func
 
-	//事件绑定
+	/**
+	 * 事件绑定
+	 */
 	function eventBind(){
 
 	}//end func

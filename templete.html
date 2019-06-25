@@ -14,9 +14,13 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
     <link rel="Shortcut Icon" href="images/icons/logo.png" type="image/x-icon">
+    <!-- 对浏览器的默认样式清除，初始化以及一些初始的样式（必须） -->
     <link rel="stylesheet" href="css/public/base.css">
+    <!-- 公共样式 -->
     <link rel="stylesheet" href="css/public/public.css">
+    <!-- 重写默认弹窗的样式（非必须） -->
     <link rel="stylesheet" href="js/plugins/dialog/dialog.css">
+    <!-- 页面样式 -->
     <link rel="stylesheet" href="css/pages/templete.css">
 </head>
 
@@ -39,15 +43,25 @@
     </div>
     
     <!-- js部分 start -->
+    <!-- 微信jsdk -->
     <script src="https://res2.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+    <!-- 一些基础的js方法包括（必须） -->
     <script src="js/base/base.min.js"></script>
+    <!-- 一些公共的js方法（可修改） -->
     <script src="js/public/common.js"></script>
+    <!-- 一些数学计算方法（可修改） -->
     <script src="js/public/math.js"></script>
+    <!-- 公共API（可修改） -->
     <script src="js/public/API.js"></script>
+    <!-- 监测的js，默认百度监测（可修改） -->
     <script src="js/public/monitor.js"></script>
+    <!-- 微信jsdk验证，微信授权等（可修改） -->
     <script src="js/public/wxUser.js"></script>
+    <!-- 重写默认弹窗的js（非必须） -->
     <script src="js/plugins/dialog/dialog.js"></script>
+    <!-- 公共的js -->
     <script src="js/public/public.js"></script>
+    <!-- 页面的js -->
     <script src="js/pages/templete.js"></script>
     <!-- js部分 end -->
 </body>
