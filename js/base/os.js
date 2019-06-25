@@ -5,6 +5,9 @@ function importOS() {
 	var b_version = navigator.appVersion;
 	var version = b_version.split(";");
 	var os = {};
+	os.windowW = window.innerWidth;
+	os.windowH = window.innerHeight;
+	os.screenProp = os.windowW / os.windowH;
 	os.userAgent = userAgent;
 	os.android = userAgent.match(/(Android)\s+([\d.]+)/) || userAgent.match(/Silk-Accelerated/) ? true : false;
 	os.ipad = userAgent.match(/(iPad).*OS\s([\d_]+)/) ? true : false;
