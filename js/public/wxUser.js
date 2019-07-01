@@ -7,6 +7,7 @@ var wxUser = new WxUser();
 
 function WxUser(){
     var _self = this;
+    var jsdkAPI = '/API/wxjsdk/wxjsdk.php';
 
     /**
      * 初始化
@@ -16,9 +17,9 @@ function WxUser(){
         var data = {
             url: location.href
         };
-        API.GetJSDKdata(data,function(data){
-            wxShareConfig(data,shareInfo);
-        });
+        $.post(jsdkAPI,data,function(data){
+            wxShareConfig(data.result,shareInfo);
+        },'JSON')
     }
 
     /**
@@ -27,8 +28,9 @@ function WxUser(){
      * @param {*} shareInfo 
      */
     function wxShareConfig(data,shareInfo){
+        console.log(data);
         wx.config({
-            debug: false,
+            debug: true,
             appId: data.appId,
             timestamp: data.timestamp,
             nonceStr: data.nonceStr,

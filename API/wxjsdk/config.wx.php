@@ -10,5 +10,5 @@
 //define("APPSECRET", "");
 header( 'Content-Type:text/html;charset=utf-8');  
 
-define("APPID", "");  
-define("APPSECRET", "");
+define("APPID", "wxe3869e539fd487f6");  
+define("APPSECRET", "a2e9ae5d2dcde3b2d16ccbe2610e6a4d");

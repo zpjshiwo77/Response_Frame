@@ -35,16 +35,4 @@ function importAPI () {
 	        }
 	    });
 	}
-
-	/**
-	 * 获取wxjsdk验证数据
-	 */
-	_self.GetJSDKdata = function(data,onSuccess){
-		_Ajax({
-            API:"wxjsdk/wxjsdk.php",
-            data:data,
-            onSuccess:onSuccess,
-            Type:false
-        });
-	}//end func
 }//end import

@@ -7,10 +7,10 @@ var loadFooterEnd = false;
  */
 $(document).ready(function() {
     if(os.weixin) wxShareInit();
-    if(icom.getUrlParam("debug") == 1) icom.loadJs("js/plugins/debug.js");
+    // wxShareInit();
     if(icom.windowsW < 1000) icom.remUnitConverter(750);   //根据设计稿的宽度设定
-    if(os.screenProp < 0.54) articleBox.addClass("screen189");
-    if(os.screenProp > 0.64) articleBox.addClass("screen159");
+    if(os.screenProp < 0.54) $(".pageWrap").addClass("screen189");
+    if(os.screenProp > 0.64) $(".pageWrap").addClass("screen159");
     renderHeadNav();
     renderFootNav();
 }); //end ready

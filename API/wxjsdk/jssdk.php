@@ -66,6 +66,7 @@ class JSSDK {
     public function getApiTicket() {
         $data = json_decode(file_get_contents("api_ticket.json"));
         if ($data->expire_time < time()) {
+            echo 1;
             $accessToken = $this->getAccessToken();
             $url = "https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=$accessToken&type=wx_card";
 			//$url = '/data/www/www.h5sites.com/authorize/black_white/access_token.json';
