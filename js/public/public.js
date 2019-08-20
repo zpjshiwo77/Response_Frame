@@ -26,7 +26,10 @@ function wxShareInit(){
         link: url, 
         imgUrl: "http://seventh77.com/timeline/images/templete/test.jpg",
     }
-    wxUser.Init(shareInfo);
+    var opts = {
+        shareInfo: shareInfo
+    }
+    wxUser.init(opts);
 }
 
 /**

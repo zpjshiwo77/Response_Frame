@@ -5,17 +5,17 @@ require_once ("config.wx.php");
 ini_set('display_errors', 'Off');
 //ini_set('display_startup_errors', TRUE);
 
-$jssdk = new JSSDK(APPID, APPSECRET);
-$signPackage = $jssdk->GetSignPackage($_POST["url"]);
+$jssdk = new JSSDK($_REQUEST["appid"], APPSECRET);
+$signPackage = $jssdk->GetSignPackage($_REQUEST["url"]);
 $back["appId"] = $signPackage["appId"];
 $back["timestamp"] = $signPackage["timestamp"];
 $back["nonceStr"] = $signPackage["nonceStr"];
 $back["signature"] = $signPackage["signature"];
-$back["url"] = $_POST["url"];
+$back["url"] = $_REQUEST["url"];
 $result["errcode"] = 0;
 $result["errmsg"] = "成功";
 $result["result"] = $back;
-if ($_POST["callback"])
-	echo($_POST["callback"] . "(" . json_encode($back) . ");");
+if ($_REQUEST["callback"])
+	echo($_REQUEST["callback"] . "(" . json_encode($back) . ");");
 else 
 	echo(json_encode($result));
